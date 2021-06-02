@@ -30,3 +30,26 @@ class TestMC(unittest.TestCase):
     
 if __name__ == "__main__":
     unittest.main()
+
+#Estimating the value of pi using wallis formula
+def wallis(n):
+  pi=1
+  for i in range(1,n):
+       k=(4*i**2)/((4*i**2)-1)
+       pi*=k
+  return pi*2
+
+
+
+#Estimating the value of pi using monte-carlo simulation
+import random
+def monte_carlo(n):
+    count=0
+    for i in range(n): 
+        x=random.random()
+        y=random.random()
+        distance=(x**2 + y**2)**(0.5)
+        if(distance<=1):
+           count=count+1
+    pi=4*(count/n)
+    return pi    
